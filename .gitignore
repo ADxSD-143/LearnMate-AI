@@ -1,0 +1,23 @@
+# Required local-only files
+.venv/
+__pycache__/
+*.pyc
+.env
+node_modules/
+
+# Python
+.pytest_cache/
+venv/
+
+# Environment
+backend/.env
+
+# Frontend
+dist/
+
+# IDE
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
