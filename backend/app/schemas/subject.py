@@ -1,4 +1,4 @@
 from pydantic import BaseModel
-class Subject(BaseModel):
+class SubjectCreate(BaseModel):
     name: str
     

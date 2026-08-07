@@ -1,0 +1,40 @@
+| Folder      | Responsibility                               |
+| ----------- | -------------------------------------------- |
+| `api/`      | Receives HTTP requests and returns responses |
+| `schemas/`  | Validates request/response data (Pydantic)   |
+| `services/` | Business logic                               |
+| `models/`   | SQLAlchemy database tables                   |
+| `database/` | PostgreSQL connection, session, base         |
+| `ml/`       | ML training & inference                      |
+| `utils/`    | Helper functions                             |
+| `config.py` | Environment variables & settings             |
+| `main.py`   | Starts FastAPI                               |
+
+REQUEST FLOW:-
+Client
+   │
+   ▼
+api/ (Router)
+   │
+   ▼
+schemas/ (Validate Request)
+   │
+   ▼
+services/ (Business Logic)
+   │
+   ▼
+models/ + database/
+   │
+   ▼
+PostgreSQL
+   │
+   ▼
+services/
+   │
+   ▼
+schemas/ (Response)
+   │
+   ▼
+Client
+
+"Never store the same information twice unless you have a very good reason."
