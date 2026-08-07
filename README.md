@@ -1,74 +1,173 @@
+<div align="center">
+
 # 🚀 LearnMate AI
 
-> **An AI-powered personalized learning platform that helps students organize their learning, stay consistent, track progress, and receive intelligent study guidance.**
+### *Your Personal AI Learning Companion*
+
+An AI-powered personalized learning platform that helps students **learn smarter, stay consistent, track progress, receive intelligent study recommendations, and connect with the right learning partners.**
+
+---
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?logo=postgresql)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-red)
+![Status](https://img.shields.io/badge/Status-Active%20Development-success)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+> **Learn smarter. Learn consistently. Learn with AI.**
+
+</div>
 
 ---
 
 # 📖 About
 
-Learning today is fragmented.
-
-Students switch between multiple apps for notes, planning, AI assistance, revision, and progress tracking.
+Modern students use different applications for different purposes.
 
 - 📒 Notion for notes
-- 📅 Google Calendar for scheduling
-- 🤖 ChatGPT for doubts
+- 📅 Google Calendar for planning
 - 📹 YouTube for learning
-- 📊 Excel for tracking
+- 🤖 ChatGPT for doubts
+- 📊 Excel for progress tracking
+- 📁 Google Drive for resources
 
-**LearnMate AI aims to unify the entire learning experience into one intelligent platform.**
+Everything is scattered.
 
-The long-term vision is to build an AI mentor that understands how a student learns, predicts performance, identifies weak concepts, and recommends the next best learning path.
+LearnMate AI aims to combine all of these into a single intelligent platform.
+
+Instead of being another task manager, LearnMate AI is designed to become an AI-powered learning ecosystem that understands every student's learning journey and continuously helps them improve.
 
 ---
 
 # 🎯 Vision
 
-LearnMate AI is being built as a production-grade AI learning platform while documenting the complete engineering journey from backend development to Machine Learning and Agentic AI.
+The vision is to build a production-grade AI learning platform that combines:
 
-The platform will eventually allow students to:
+- Backend Engineering
+- Artificial Intelligence
+- Machine Learning
+- Recommendation Systems
+- Data Analytics
+- Agentic AI
 
-- 📚 Organize Subjects, Topics & Tasks
-- 📝 Create personalized study plans
-- 📈 Track learning progress
-- 🎯 Build daily study streaks
-- 🧠 Detect weak concepts
-- 🤖 Receive AI-powered recommendations
-- 📊 Predict academic performance using Machine Learning
-- 💬 Learn with a personal AI Mentor
+Eventually, LearnMate AI should be capable of acting as a personal mentor that guides students from their first semester to internships, placements, higher studies, and lifelong learning.
 
 ---
 
-# ✨ Current Features
+# 🌟 Core Features
 
-## ✅ Backend
+## 📚 Learning Management
+
+- Subject Management
+- Topic Management
+- Task Management
+- Daily Planner
+- Smart Revision Scheduler
+- Learning Goals
+- Progress Tracking
+- Learning Streaks
+
+---
+
+## 🤖 AI Features
+
+- AI Mentor
+- AI Doubt Assistant
+- Personalized Study Roadmaps
+- Smart Revision Recommendations
+- Resource Recommendation
+- Automatic Weak Topic Detection
+- AI-generated Study Plans
+
+---
+
+## 📊 Machine Learning
+
+- Student Performance Prediction
+- Personalized Recommendation Engine
+- Productivity Prediction
+- Learning Pattern Analysis
+- Consistency Score
+- Weak Subject Detection
+
+---
+
+## 👥 Social Learning
+
+### 🤝 1-to-1 Peer Learning
+
+One of the core features of LearnMate AI.
+
+Instead of randomly connecting students, the system intelligently recommends the **best study partner** based on:
+
+- Current Subjects
+- Learning Goals
+- Skill Level
+- Interests
+- Preferred Learning Style
+- Availability
+- Progress
+- Consistency
+
+Examples:
+
+- Learning Python? → Match with another Python learner.
+- Preparing for DSA Interviews? → Connect with someone solving similar problems.
+- Learning Machine Learning? → Find students at a similar level.
+
+Future versions may also support:
+
+- Study Groups
+- Mentor Matching
+- Pair Programming
+- Live Collaborative Sessions
+
+---
+
+# ✨ Current Progress
+
+## ✅ Completed
+
+### Backend
 
 - FastAPI Backend
-- PostgreSQL Database
+- PostgreSQL Integration
 - SQLAlchemy ORM
 - Layered Architecture
-- Automatic Database Initialization
-- Swagger API Documentation
 - Database Session Management
+- Automatic Table Creation
+- Dependency Injection
+- Swagger Documentation
 
-## ✅ Implemented
+### APIs
 
 - Subject Create API
-- Duplicate Subject Validation
-- PostgreSQL Integration
-- SQLAlchemy Models
-- Database Relationships
-- Dependency Injection
+- Subject Validation
+- Duplicate Subject Prevention
 
 ---
 
-# 🚧 Currently Working On
+## 🚧 In Progress
 
-- Subject Read API
-- Subject Update API
-- Subject Delete API
+- Subject CRUD
 - Topic CRUD
 - Task CRUD
+- User Authentication
+- JWT Authentication
+- User-specific Subjects
+
+---
+
+## 🔮 Planned
+
+- Daily Planner
+- AI Mentor
+- Recommendation Engine
+- Analytics Dashboard
+- Machine Learning Models
+- React Frontend
+- Mobile Application
 
 ---
 
@@ -76,12 +175,12 @@ The platform will eventually allow students to:
 
 ## ✅ Version 1 — Backend Foundation
 
-- [x] FastAPI Setup
-- [x] PostgreSQL Integration
-- [x] SQLAlchemy ORM
-- [x] Database Sessions
+- [x] FastAPI
+- [x] PostgreSQL
+- [x] SQLAlchemy
+- [x] Swagger
 - [x] Subject Create API
-- [x] Swagger Documentation
+- [x] Layered Architecture
 
 ---
 
@@ -90,84 +189,114 @@ The platform will eventually allow students to:
 - [ ] Subject CRUD
 - [ ] Topic CRUD
 - [ ] Task CRUD
-- [ ] User Authentication (JWT)
-- [ ] User-specific Data
+- [ ] JWT Authentication
+- [ ] User Management
 - [ ] Progress Tracking
 
 ---
 
-## 🔮 Version 3 — AI Features
+## 🚀 Version 3 — AI Features
 
 - [ ] AI Mentor
 - [ ] Recommendation Engine
-- [ ] Daily Study Planner
+- [ ] AI Doubt Assistant
+- [ ] Smart Revision Planner
 - [ ] Analytics Dashboard
-- [ ] File Upload
-- [ ] Notes Management
 
 ---
 
 ## 🤖 Version 4 — Machine Learning
 
-- [ ] Student Performance Prediction
-- [ ] Personalized Recommendations
-- [ ] Weak Topic Detection
-- [ ] Learning Pattern Analysis
+Models planned:
+
+- Linear Regression
+- Logistic Regression
+- Decision Trees
+- Random Forest
+- XGBoost
+- LightGBM
+- CatBoost
+
+Applications:
+
+- Performance Prediction
+- Recommendation Engine
+- Weak Topic Detection
+- Productivity Analysis
+- Learning Behaviour Analysis
 
 ---
 
-## 🚀 Version 5 — Agentic AI
+## 🧠 Version 5 — Agentic AI
 
-- [ ] RAG
-- [ ] Vector Database
-- [ ] Long-Term Memory
-- [ ] Multi-Agent Study Assistant
-- [ ] Autonomous Learning Planner
+- Long-term Memory
+- RAG
+- Vector Database
+- Autonomous AI Mentor
+- Multi-Agent Learning Assistant
+- Personalized AI Coach
 
 ---
 
-# 🏗️ Backend Architecture
+# 🏗️ System Architecture
 
-```
-Client
-    │
-    ▼
-FastAPI Router
-    │
-    ▼
-Service Layer
-    │
-    ▼
-SQLAlchemy ORM
-    │
-    ▼
-PostgreSQL
+```text
+                           User
+                             │
+                             ▼
+                    React Frontend
+                       (Future)
+                             │
+                        REST API
+                             │
+                             ▼
+                   FastAPI Backend
+                             │
+        ┌────────────┬─────────────┬────────────┐
+        ▼            ▼             ▼
+    Authentication  Learning APIs   AI APIs
+                     │
+                     ▼
+                Service Layer
+                     │
+                     ▼
+              SQLAlchemy ORM
+                     │
+                     ▼
+                PostgreSQL
 ```
 
 ---
 
 # 🗄️ Database Architecture
 
-```
+```text
 User
  │
- └── Subject
-        │
-        └── Topic
-               │
-               └── Task
+ ├── Subject
+ │      │
+ │      ├── Topic
+ │      │      │
+ │      │      ├── Task
+ │      │      │      │
+ │      │      │      └── Progress
+ │      │      │
+ │      │      └── AI Recommendation
+ │      │
+ │      └── Analytics
+ │
+ └── Learning Partner
 ```
-
-> Authentication and User ownership will be introduced in Version 2.
 
 ---
 
 # 📂 Project Structure
 
-```
+```text
 LearnMate-AI/
 
 ├── backend/
+│
 │   ├── app/
 │   │
 │   ├── api/
@@ -175,17 +304,24 @@ LearnMate-AI/
 │   ├── models/
 │   ├── schemas/
 │   ├── services/
-│   ├── main.py
-│   │
-│   └── requirements.txt
+│   ├── ml/
+│   ├── utils/
+│   └── main.py
 │
-├── README.md
-└── .gitignore
+├── frontend/
+│
+├── docs/
+│
+├── datasets/
+│
+├── notebooks/
+│
+└── README.md
 ```
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠 Tech Stack
 
 ## Backend
 
@@ -196,53 +332,81 @@ LearnMate-AI/
 - Pydantic
 - Uvicorn
 
-## Version Control
+---
 
-- Git
-- GitHub
-
-## Future Stack
+## Frontend (Planned)
 
 - React
 - Tailwind CSS
-- Scikit-learn
-- LangGraph
-- Vector Database
-- RAG
-- Agentic AI
 
 ---
 
-# 🌐 API Endpoints
+## Artificial Intelligence
+
+- OpenAI
+- LangGraph
+- RAG
+- Vector Database
+
+---
+
+## Machine Learning
+
+- Scikit-learn
+- XGBoost
+- LightGBM
+- CatBoost
+- Pandas
+- NumPy
+
+---
+
+## Dev Tools
+
+- Git
+- GitHub
+- Postman
+- Swagger UI
+- pgAdmin
+
+---
+
+# 🌐 Current API Endpoints
 
 | Method | Endpoint | Description |
 |---------|----------|-------------|
 | GET | `/` | Welcome Endpoint |
 | POST | `/subjects` | Create Subject |
 
-> More endpoints will be added as development progresses.
+> More APIs will be added as development progresses.
 
 ---
 
 # 🚀 Getting Started
 
-## Clone Repository
+## Clone
 
 ```bash
 git clone https://github.com/ADxSD-143/LearnMate-AI.git
 ```
 
-## Move into project
+---
+
+## Navigate
 
 ```bash
 cd LearnMate-AI/backend
 ```
+
+---
 
 ## Create Virtual Environment
 
 ```bash
 python -m venv .venv
 ```
+
+---
 
 ## Activate
 
@@ -258,19 +422,23 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
+---
+
 ## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Run Server
+---
+
+## Run
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
-Open Swagger UI:
+Open:
 
 ```
 http://127.0.0.1:8000/docs
@@ -278,14 +446,20 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# 🎯 Why This Project?
+# 💡 Why This Project?
 
-This project serves two purposes:
+LearnMate AI is not just another CRUD project.
 
-1. Build an intelligent AI-powered learning platform.
-2. Learn production-level Backend Development, Machine Learning, and Agentic AI by building a real-world software product from scratch.
+It is a long-term engineering project focused on building an intelligent learning ecosystem while documenting the complete journey of learning:
 
-Instead of building isolated tutorial projects, LearnMate AI evolves continuously while documenting the complete engineering journey.
+- Backend Engineering
+- Software Architecture
+- Databases
+- Machine Learning
+- Recommendation Systems
+- Agentic AI
+
+Every feature is implemented incrementally with the goal of evolving into a real-world AI product.
 
 ---
 
@@ -299,12 +473,24 @@ IIIT Bhubaneswar
 
 ---
 
-# ⭐ Support
+# ⭐ Contributing
 
-If you find this project interesting, consider giving it a ⭐ on GitHub.
+Contributions, suggestions, and feature ideas are always welcome.
 
-It motivates further development and helps others discover the project.
+Feel free to open an Issue or Pull Request.
 
 ---
 
-> 🚀 **Learn smarter. Learn consistently. Learn with AI.**
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+<div align="center">
+
+## ⭐ If you like this project, consider giving it a star.
+
+**Learn smarter. Learn consistently. Learn with AI. 🚀**
+
+</div>
