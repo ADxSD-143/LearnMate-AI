@@ -104,3 +104,51 @@ def test_cross_user_quiz_isolation(client):
         headers=headers_b,
     )
     assert bob_attempt.status_code == 404
+
+
+def test_quiz_attempt_rejects_malformed_or_incomplete_answers(client):
+    headers = get_auth_headers(client, "quiz_validation", "quiz_validation@test.com")
+    subject = client.post("/api/v1/subjects/", json={"name": "Databases"}, headers=headers).json()
+    topic = client.post(
+        "/api/v1/topics/",
+        json={"name": "Indexes", "subject_id": subject["id"]},
+        headers=headers,
+    ).json()
+
+    question = client.post(
+        "/api/v1/quizzes/questions",
+        json={
+            "topic_id": topic["id"],
+            "question_text": "What does an index improve?",
+            "option_a": "Lookup speed",
+            "option_b": "Screen brightness",
+            "option_c": "Audio quality",
+            "option_d": "Battery size",
+            "correct_option": "A",
+        },
+        headers=headers,
+    ).json()
+
+    incomplete = client.post(
+        "/api/v1/quizzes/attempts",
+        json={"topic_id": topic["id"], "answers": {}},
+        headers=headers,
+    )
+    assert incomplete.status_code == 422
+
+    malformed_id = client.post(
+        "/api/v1/quizzes/attempts",
+        json={"topic_id": topic["id"], "answers": {"not-an-id": "A"}},
+        headers=headers,
+    )
+    assert malformed_id.status_code == 400
+
+    extra_id = client.post(
+        "/api/v1/quizzes/attempts",
+        json={
+            "topic_id": topic["id"],
+            "answers": {str(question["id"]): "A", "999999": "B"},
+        },
+        headers=headers,
+    )
+    assert extra_id.status_code == 400

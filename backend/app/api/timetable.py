@@ -34,6 +34,8 @@ def add_timetable_entry(
         return create_timetable_entry(db, user_id=current_user.id, data=data)
     except KeyError as e:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
 
 @router.get("/{entry_id}", response_model=TimetableOut)
 def read_timetable_entry(
@@ -57,6 +59,8 @@ def edit_timetable_entry(
         return update_timetable_entry(db, user_id=current_user.id, entry_id=entry_id, data=data)
     except KeyError:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Timetable entry not found")
+    except ValueError as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
 
 @router.delete("/{entry_id}", status_code=status.HTTP_204_NO_CONTENT)
 def remove_timetable_entry(

@@ -11,6 +11,7 @@ venv/
 
 # Environment
 backend/.env
+backend/app/uploads/
 
 # Frontend
 dist/

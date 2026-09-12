@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional
+from typing import Literal, Optional
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -29,7 +29,11 @@ class QuizQuestionOut(QuizQuestionBase):
 
 class QuizAttemptSubmit(BaseModel):
     topic_id: int
-    answers: dict[str, str] = Field(..., description="Map of question_id as string to selected option A-D")
+    answers: dict[str, Literal["A", "B", "C", "D"]] = Field(
+        ...,
+        min_length=1,
+        description="Map of question_id as string to selected option A-D",
+    )
 
 
 class QuizAttemptOut(BaseModel):

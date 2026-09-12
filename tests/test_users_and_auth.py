@@ -133,3 +133,34 @@ def test_authentication_and_protected_profile(client):
     assert profile["username"] == "test_learner"
     assert profile["email"] == "learner@learnmate.ai"
     assert profile["semester"] == 3
+
+
+def test_user_directory_endpoints_do_not_enumerate_other_users(client):
+    first = client.post("/api/v1/users/", json={
+        "username": "private_first",
+        "email": "private_first@test.com",
+        "password": "Password123",
+        "semester": 1,
+    })
+    second = client.post("/api/v1/users/", json={
+        "username": "private_second",
+        "email": "private_second@test.com",
+        "password": "Password123",
+        "semester": 1,
+    })
+    assert first.status_code == 201
+    assert second.status_code == 201
+
+    login = client.post("/api/v1/auth/login", data={
+        "username": "private_first",
+        "password": "Password123",
+    })
+    headers = {"Authorization": f"Bearer {login.json()['access_token']}"}
+
+    listed = client.get("/api/v1/users/", headers=headers)
+    assert listed.status_code == 200
+    assert [user["username"] for user in listed.json()] == ["private_first"]
+
+    other_id = second.json()["id"]
+    direct = client.get(f"/api/v1/users/{other_id}", headers=headers)
+    assert direct.status_code == 404

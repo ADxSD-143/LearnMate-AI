@@ -28,14 +28,16 @@ app = FastAPI(
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Initialize database tables
-init_db()
+# Development convenience only. Production schema changes should be applied
+# through a migration tool before starting the application.
+if settings.AUTO_CREATE_TABLES:
+    init_db()
 
 @app.get("/")
 def home():

@@ -139,6 +139,11 @@ Future versions may also support:
 - Automatic Table Creation
 - Dependency Injection
 - Swagger Documentation
+- JWT authentication with protected user-owned resources
+- Subjects, topics, tasks, timetable, and attendance APIs
+- User-scoped document upload and text extraction
+- Quiz attempts and deterministic weak-topic detection
+- Rule-based recommendations and baseline study plans
 
 ### APIs
 
@@ -150,24 +155,46 @@ Future versions may also support:
 
 ## 🚧 In Progress
 
-- Subject CRUD
-- Topic CRUD
-- Task CRUD
-- User Authentication
-- JWT Authentication
-- User-specific Subjects
+- Production migration workflow (Alembic)
+- Embedding-based semantic retrieval with pgvector
+- Structured LLM generation for study tools
+- Authenticated React feature screens
+- Real ML training data and evaluated model artifacts
 
 ---
 
 ## 🔮 Planned
 
-- Daily Planner
-- AI Mentor
-- Recommendation Engine
-- Analytics Dashboard
-- Machine Learning Models
-- React Frontend
-- Mobile Application
+- Background processing for large document and AI jobs
+- Object-storage abstraction for uploaded material
+- Learning analytics and adaptive planning
+- Peer matching and study rooms
+- Mobile application
+
+## Local setup
+
+The backend reads configuration from `backend/.env`; copy
+`backend/.env.example` and set `DATABASE_URL`, `SECRET_KEY`, and
+`CORS_ORIGINS`. Use `AUTO_CREATE_TABLES=true` only for local development.
+Production deployments should set it to `false` and apply migrations before
+starting the API.
+
+```powershell
+cd backend
+..\\.venv\\Scripts\\python.exe -m uvicorn app.main:app --reload
+```
+
+Run the backend tests and frontend build from the repository root:
+
+```powershell
+.\\.venv\\Scripts\\python.exe -m pytest -q
+cd frontend
+npm run build
+```
+
+The current material pipeline supports TXT, Markdown, and PDF extraction with
+keyword-based retrieval. It is intentionally documented as scaffolding until
+embeddings, vector search, and a configured LLM provider are added.
 
 ---
 

@@ -162,3 +162,48 @@ def test_cross_user_attendance_security(client):
     # Bob attempts to delete Alice's attendance record -> 404
     bob_del = client.delete(f"/api/v1/attendance/{rec_id}", headers=headers_bob)
     assert bob_del.status_code == 404
+
+
+def test_timetable_rejects_invalid_ranges_and_overlaps(client):
+    headers = get_auth_headers(client, "student_tt_validation", "tt_validation@test.com")
+    subject = client.post(
+        "/api/v1/subjects/",
+        json={"name": "Operating Systems"},
+        headers=headers,
+    ).json()
+
+    invalid = client.post(
+        "/api/v1/timetable/",
+        json={
+            "subject_id": subject["id"],
+            "day_of_week": "Tuesday",
+            "start_time": "11:00",
+            "end_time": "10:00",
+        },
+        headers=headers,
+    )
+    assert invalid.status_code == 400
+
+    first = client.post(
+        "/api/v1/timetable/",
+        json={
+            "subject_id": subject["id"],
+            "day_of_week": "Tuesday",
+            "start_time": "10:00",
+            "end_time": "11:00",
+        },
+        headers=headers,
+    )
+    assert first.status_code == 201
+
+    overlap = client.post(
+        "/api/v1/timetable/",
+        json={
+            "subject_id": subject["id"],
+            "day_of_week": "Tuesday",
+            "start_time": "10:30",
+            "end_time": "11:30",
+        },
+        headers=headers,
+    )
+    assert overlap.status_code == 400

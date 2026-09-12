@@ -53,19 +53,29 @@ def submit_quiz_attempt(db: Session, user_id: int, payload: QuizAttemptSubmit) -
     if not topic:
         raise KeyError(f"Topic with id {payload.topic_id} not found or access denied.")
 
-    question_ids = [int(key) for key in payload.answers.keys()]
+    try:
+        question_ids = [int(key) for key in payload.answers.keys()]
+    except (TypeError, ValueError) as exc:
+        raise ValueError("Quiz answer keys must be numeric question IDs.") from exc
+
+    if any(question_id <= 0 for question_id in question_ids):
+        raise ValueError("Quiz answer keys must be positive question IDs.")
+
     questions = db.execute(
         select(QuizQuestion).where(QuizQuestion.user_id == user_id, QuizQuestion.topic_id == payload.topic_id, QuizQuestion.id.in_(question_ids))
     ).scalars().all()
     if not questions:
         raise ValueError("No valid quiz questions were provided for this topic.")
 
+    valid_question_ids = {question.id for question in questions}
+    if set(question_ids) != valid_question_ids:
+        raise ValueError("Answers must contain exactly the questions from this topic that belong to you.")
+
     total = len(questions)
     correct = 0
     answer_map = {question.id: question.correct_option for question in questions}
     for question_id, selected_option in payload.answers.items():
-        selected = str(selected_option).strip().upper()
-        if answer_map.get(int(question_id)) == selected:
+        if answer_map.get(int(question_id)) == selected_option:
             correct += 1
 
     percentage = round((correct / total) * 100, 2) if total else 0.0
