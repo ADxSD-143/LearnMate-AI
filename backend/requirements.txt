@@ -3,7 +3,15 @@ uvicorn[standard]
 pydantic
 email-validator
 python-dotenv
+sqlalchemy
+psycopg2-binary
+bcrypt
+python-jose[cryptography]
+python-multipart
 joblib
 numpy
 pandas
 scikit-learn
+pytest
+httpx
+pypdf
