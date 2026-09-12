@@ -16,6 +16,8 @@ from app.api.health import router as health_router
 from app.api.predict import router as prediction_router
 from app.api.materials import router as materials_router
 from app.api.quizzes import router as quizzes_router
+from app.api.recommendations import router as recommendations_router
+from app.api.study_plans import router as study_plans_router
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -57,3 +59,5 @@ app.include_router(attendance_router, prefix=f"{settings.API_V1_PREFIX}/attendan
 app.include_router(prediction_router, prefix=f"{settings.API_V1_PREFIX}/predict", tags=["Prediction"])
 app.include_router(materials_router, prefix=f"{settings.API_V1_PREFIX}/materials", tags=["Materials"])
 app.include_router(quizzes_router, prefix=f"{settings.API_V1_PREFIX}/quizzes", tags=["Quizzes"])
+app.include_router(recommendations_router, prefix=f"{settings.API_V1_PREFIX}/recommendations", tags=["Recommendations"])
+app.include_router(study_plans_router, prefix=f"{settings.API_V1_PREFIX}/study-plans", tags=["Study Plans"])
