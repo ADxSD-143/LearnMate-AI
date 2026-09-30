@@ -4,7 +4,7 @@
 
 ### *Your Personal AI Learning Companion*
 
-An AI-powered personalized learning platform that helps students **learn smarter, stay consistent, track progress, receive intelligent study recommendations, and connect with the right learning partners.**
+An AI-powered personalized learning platform that helps students **learn smarter, stay consistent, track progress, receive intelligent study recommendations, and connect with the right learning partners .**
 
 ---
 
